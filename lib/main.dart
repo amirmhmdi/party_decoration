@@ -1,7 +1,14 @@
+import 'package:flutter/foundation.dart' show kIsWeb;
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+
+import 'package:party_decoration/core/router/router.dart';
+import 'package:party_decoration/core/utils/path_url_strategy/path_url_strategy_non_web.dart'
+    if (dart.library.js_interop) 'package:party_decoration/core/utils/path_url_strategy/path_url_srategy_web.dart';
 
 void main() {
-  runApp(const MainApp());
+  configureUrl();
+  runApp(ProviderScope(child: const MainApp()));
 }
 
 class MainApp extends StatelessWidget {
@@ -9,12 +16,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(
-      home: Scaffold(
-        body: Center(
-          child: Text('Hello World!'),
-        ),
-      ),
-    );
+    return MaterialApp.router(routerConfig: router);
   }
 }
