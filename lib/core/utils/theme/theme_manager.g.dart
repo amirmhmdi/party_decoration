@@ -40,7 +40,7 @@ final class ThemeManagerProvider extends $NotifierProvider<ThemeManager, bool> {
   }
 }
 
-String _$themeManagerHash() => r'143339eda3a3d9f87f3239d6f3a8e7ccca02d21f';
+String _$themeManagerHash() => r'366ed0a8967cabeb85d621f1e9e7a864a75e8c4f';
 
 abstract class _$ThemeManager extends $Notifier<bool> {
   bool build();
