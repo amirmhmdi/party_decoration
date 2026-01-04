@@ -1,7 +1,7 @@
 import 'package:freezed_annotation/freezed_annotation.dart';
 import 'package:party_decoration/features/product/domain/entities/faq_entity.dart';
 import 'package:party_decoration/features/product/domain/entities/review_entity.dart';
-import 'package:party_decoration/features/product/domain/entities/enum_product_tag.dart';
+import 'package:party_decoration/core/utils/constans/enums/enum_product_tag.dart';
 
 part 'product_entity.freezed.dart';
 
@@ -10,6 +10,7 @@ abstract class ProductEntity with _$ProductEntity {
   const factory ProductEntity({
     required String name,
     required String description,
+    required List<String> images,
     required double price,
     required double discount,
     required double rate,
