@@ -6,5 +6,14 @@ Future<void> initServiceLocator() async {
   final box = await Hive.openBox(DatabaseKeys.databaseName);
   sl
     ..registerLazySingleton(() => box)
-    ..registerLazySingleton(() => CacheHelper(sl()));
+    ..registerLazySingleton(() => CacheHelper(sl()))
+    ..registerLazySingleton(() => ProductCacheDatasource(sl()))
+    ..registerLazySingleton(() => ProductApiDatasource())
+    ..registerLazySingleton<ProductRepo>(
+      () => ProductRepoImpl(
+        productApiDatasource: sl(),
+        productCacheDatasource: sl(),
+      ),
+    )
+    ..registerLazySingleton(() => GetProductUsecase(repo: sl()));
 }

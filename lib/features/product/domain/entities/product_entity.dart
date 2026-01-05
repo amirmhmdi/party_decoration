@@ -8,6 +8,7 @@ part 'product_entity.freezed.dart';
 @freezed
 abstract class ProductEntity with _$ProductEntity {
   const factory ProductEntity({
+    required String id,
     required String name,
     required String description,
     required List<String> images,

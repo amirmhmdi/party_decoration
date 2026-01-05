@@ -12,6 +12,7 @@ abstract class ProductModel with _$ProductModel {
   const ProductModel._();
 
   const factory ProductModel({
+    required String id,
     required String name,
     required String description,
     required List<String> images,
@@ -31,6 +32,7 @@ abstract class ProductModel with _$ProductModel {
       _$ProductModelFromJson(json);
 
   factory ProductModel.formEntity(ProductEntity productEntity) => ProductModel(
+    id: productEntity.id,
     name: productEntity.name,
     description: productEntity.description,
     images: productEntity.images,
@@ -49,6 +51,7 @@ abstract class ProductModel with _$ProductModel {
   );
 
   ProductEntity toEntity() => ProductEntity(
+    id: id,
     name: name,
     description: description,
     images: images,
